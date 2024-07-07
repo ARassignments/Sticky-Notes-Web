@@ -1,5 +1,243 @@
-*{
+@font-face {
+    font-family: 'regular';
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'bold';
+    src: url(../fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'notebook';
+    src: url(../fonts/Notebook.ttf);
+}
+
+@font-face {
+    font-family: 'school';
+    src: url(../fonts/SchoolNote.ttf);
+}
+
+@font-face {
+    font-family: 'rightous';
+    src: url(../fonts/Righteous-Regular.ttf);
+}
+
+:root {
+    --poppins-regular: 'regular';
+    --poppins-bold: 'bold';
+}
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: var(--poppins-regular);
+}
+
+body {
+    background-color: #222438;
+    font-family: poppins;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: repeating-linear-gradient(to right,
+            transparent 0 50px,
+            #fff1 50px 51px),
+        repeating-linear-gradient(to bottom,
+            transparent 0 50px,
+            #fff1 50px 51px);
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    font-size: 14rem;
+    font-family: 'school';
+    text-transform: capitalize;
+    font-weight: 200;
+}
+
+.title h1 span {
+    font-family: 'notebook';
+    text-transform: capitalize;
+    font-size: 7rem;
+    margin-top: -4rem;
+}
+
+form {
+    background-color: rgba(238, 238, 238, 1);
+    width: max-content;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 20px 50px #0004;
+}
+
+form input, form button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: larger;
+    cursor: pointer;
+    font-family: var(--poppins-regular);
+    color: #222438;
+}
+form button {
+    color: #494a57;
+}
+
+form input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+form input[type="color"]::-webkit-color-swatch {
+    border-radius: 100%;
+    border: none;
+}
+
+#list:active .note {
+    opacity: 0.5;
+}
+
+#list:active .note:active {
+    opacity: 1;
+    transform: scale(1.1);
+    outline: 4px dashed rgba(0, 162, 255, 0.603);
+    outline-offset: 10px;
+}
+
+#list textarea {
+    color: #d6d6d6;
+    width: 100%;
+    height: 100%;
+    word-spacing: wrap;
+    cursor: text;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    margin-bottom: 0;
+    font-family: var(--poppins-regular);
+    font-size: 16px;
+}
+
+#list textarea::-webkit-scrollbar {
+    width: 20px;
+}
+
+#list textarea::-webkit-scrollbar-track {
+    background-color: #333;
+}
+
+#list textarea::-webkit-scrollbar-thumb {
+    background-color: #525252;
+    border: 6px solid #333;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#list .note {
+    background-color: #333;
+    width: 280px;
+    border-top: 30px solid #e6b905;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px #0004;
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    cursor: grab;
+    transform-origin: top center;
+    transition: opacity 0.3s ease, transform 0.3s ease, outline 0.3s ease, outline-offset 0.3s ease;
+    outline: 4px dashed rgba(0, 162, 255, 0);
+    outline-offset: 0px;
+}
+
+#list .note:active {
+    cursor: grabbing;
+}
+
+#list .note span {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    font-family: cursive;
+    cursor: pointer;
+    color: #37394b;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0px;
+    border-top-right-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#list .note span:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#list .note span.copyBtn {
+    right: 30px;
+    border-top-right-radius: 0px;
+}
+
+.by {
+    position: fixed;
+    bottom: 1.0em;
+    right: 1.0em;
+    font-size: 1.5vw;
+    color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 0.01em solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    gap: 0.2em;
+    font-family: 'rightous', sans-serif;
+    transition: all 1.0s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.by span {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: bold;
+    font-size: 0.5em;
+    text-transform: capitalize;
+}
+
+@media only screen and (max-width:600px) {
+    .by {
+        bottom: 1.0em;
+        right: 1.0em;
+        font-size: 3.5vw;
+    }
+
+    .by span {
+        font-size: 0.55em;
+    }
 }

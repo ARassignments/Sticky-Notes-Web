@@ -4,9 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Notes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    
+    <main>
+        <div class="title">
+            <h1>sticky <span>notes</span></h1>
+        </div>
+        <form action="">
+            <input type="color" id="color" value="#e6b905" required>
+            <button id="addNotesBtn" type="button"><i class="fa-solid fa-plus"></i></button>
+        </form>
+        <div id="list">
+            <!-- <div class="note">
+                <span class="close">x</span>
+                <textarea rows="10" cols="30" placeholder="Write Content..."></textarea>
+            </div> -->
+        </div>
+        <div class="by"> <span>designed by</span> AR Assignments</div>
+    </main>
 </body>
+<script src="assets/js/script.js"></script>
 </html>
